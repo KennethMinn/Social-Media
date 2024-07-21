@@ -6,6 +6,7 @@ import cors from "cors";
 import cookieParser from "cookie-parser";
 import morgan from "morgan";
 import { authRoutes } from "./routes/authRoutes";
+import { postRoutes } from "./routes/postRoutes";
 
 dotenv.config(); //to use env
 const app = express();
@@ -29,4 +30,6 @@ app.use(cookieParser());
 server.listen(8080, () => {
   console.log("server connected");
 });
+
 app.use("/auth", authRoutes);
+app.use(postRoutes);
