@@ -42,6 +42,12 @@ export class AuthService {
         where: {
           email,
         },
+        select: {
+          id: true,
+          email: true,
+          password: true,
+          createdAt: true,
+        },
       });
 
       if (!user) return res.status(404).json({ message: "User not found" });

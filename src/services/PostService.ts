@@ -25,7 +25,13 @@ export class PostService {
           id: Number(postId),
         },
         include: {
-          author: true,
+          author: {
+            select: {
+              id: true,
+              email: true,
+              createdAt: true,
+            },
+          },
         },
       });
 
