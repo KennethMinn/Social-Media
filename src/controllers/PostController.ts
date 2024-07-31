@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import { PostService } from "../services/PostService";
+import { postService, PostService } from "../services/PostService";
 
 export class PostController {
   constructor(private postService: PostService) {}
@@ -24,3 +24,5 @@ export class PostController {
     return this.postService.deletePost(req, res);
   }
 }
+
+export const postController = new PostController(postService);

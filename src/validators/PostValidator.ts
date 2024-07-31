@@ -1,5 +1,5 @@
 import { NextFunction, Request, Response } from "express";
-import { ErrorService } from "../services/ErrorService";
+import { errorService, ErrorService } from "../services/ErrorService";
 import { postCreateSchema } from "../schemas/post/postCreateSchema";
 import { postUpdateSchema } from "../schemas/post/postUpdateSchema";
 
@@ -24,3 +24,5 @@ export class PostValidator {
     );
   }
 }
+
+export const postValidator = new PostValidator(errorService);
