@@ -28,7 +28,7 @@ app.use(bodyParser.json());
 app.use(cookieParser());
 
 server.listen(8080, () => {
-  console.log("server connected");
+  console.log("server connected on port 8080");
 });
 
 app.use("/auth", authRoutes);

@@ -6,7 +6,7 @@ import { createToken } from "../utils/createToken";
 import jwt, { VerifyErrors } from "jsonwebtoken";
 export class AuthService {
   async registerUser(req: Request, res: Response) {
-    const { email, password } = req.body;
+    const { name, email, password } = req.body;
 
     try {
       const userExisted = await prisma.user.findUnique({
@@ -22,6 +22,7 @@ export class AuthService {
 
       const user = await prisma.user.create({
         data: {
+          name,
           email,
           password: hashedPassword,
         },

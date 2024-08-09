@@ -7,6 +7,7 @@ export class PostService {
       const posts = await prisma.post.findMany({
         include: {
           author: true,
+          comments: true,
         },
       });
 
